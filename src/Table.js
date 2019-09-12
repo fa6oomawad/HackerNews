@@ -9,7 +9,7 @@ function Table(props) {
   const { list, pattern, onDismiss } = props;
   return (
     <div className="table">
-      {list.filter(isSearched(pattern)).map(item => {
+      {list.map(item => {
         return (
           <div key={item.objectID} className="table-row">
             <span style={{ width: "40%" }}>
