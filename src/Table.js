@@ -6,7 +6,7 @@ function isSearched(searchTerm) {
   };
 }
 function Table(props) {
-  const { list, pattern, onDismiss } = props;
+  const { list, onDismiss } = props;
   return (
     <div className="table">
       {list.map(item => {
