@@ -1,9 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import renderer from "react-test-renderer";
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16'
 import App from "./App";
 import { exportAllDeclaration } from "@babel/types";
 import { Search, Button, Table } from "./App";
+
+//initilizing the adapter for enzyme
+Enzyme.configure({adapter:new Adapter()});
 
 describe("App", () => {
   it("renders without crashing", () => {
