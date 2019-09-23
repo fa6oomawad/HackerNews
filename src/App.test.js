@@ -51,6 +51,11 @@ describe("Button", () => {
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it("a button will be shown", () => {
+    const element = shallow(<Button />);
+    expect(element.length).toBe(1);
+  });
 });
 
 //test Table component
