@@ -5,6 +5,7 @@ import axios from "axios";
 import Table from "./Table";
 import Search from "./Search";
 import Button from "./Button";
+import PropTypes from "prop-types";
 
 const DEFAULT_QUERY = "redux";
 const DEFAULT_HPP = "100";
@@ -123,10 +124,34 @@ class App extends Component {
     );
   }
 }
+//prop types checkers  for components
+Button.PropTypes = {
+  onClick: PropTypes.func,
+  className: PropTypes.string,
+  children: PropTypes.node
+};
+Button.defaultProps = {
+  className: ""
+};
+Table.PropType = {
+  list: PropTypes.arrayOf(
+    PropTypes.shape({
+      objectId: PropTypes.string.isRequired,
+      author: PropTypes.string,
+      url: PropTypes.string,
+      num_comments: PropTypes.number,
+      points: PropTypes.number
+    }).isRequired
+  ),
+  onDismiss: PropTypes.func.isRequired
+};
+
+Search.PropTypes = {
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+  onSubmit: PropTypes.func,
+  children: PropTypes.node
+};
 
 export default App;
-export {
-  Button,
-  Search,
-  Table,
-};
+export { Button, Search, Table };
