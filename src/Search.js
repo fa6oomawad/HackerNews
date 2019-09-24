@@ -6,7 +6,7 @@ function Search(props) {
   return (
     <form onSubmit={onSubmit}>
       <input type="text" onChange={onChange} value={value} />
-      <button type="submit">Search</button>
+      <button type="submit">{children}</button>
     </form>
   );
 }

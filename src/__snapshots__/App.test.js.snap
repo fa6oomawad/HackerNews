@@ -18,7 +18,7 @@ exports[`App has a valid snapshot 1`] = `
       <button
         type="submit"
       >
-        Search
+        children
       </button>
     </form>
   </div>
@@ -56,7 +56,7 @@ exports[`Search has a valid snapshot 1`] = `
   <button
     type="submit"
   >
-    Search
+    children
   </button>
 </form>
 `;
