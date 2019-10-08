@@ -4,8 +4,13 @@ import renderer from "react-test-renderer";
 import Enzyme, { shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import App from "./App";
-import { exportAllDeclaration } from "@babel/types";
+import {
+  exportAllDeclaration,
+  objectTypeProperty,
+  objectTypeAnnotation
+} from "@babel/types";
 import { Search, Button, Table } from "./App";
+import updateSearchTopStoriesState from "./App";
 
 //initilizing the adapter for enzyme
 Enzyme.configure({ adapter: new Adapter() });
@@ -21,6 +26,13 @@ describe("App", () => {
     const component = renderer.create(<App />);
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+  });
+  const props = {
+    hits: 800,
+    pages: 0
+  };
+  it("new object created", () => {
+    expect(updateSearchTopStoriesState).toBe(1);
   });
 });
 
@@ -66,9 +78,7 @@ describe("Table", () => {
     list: [
       { title: "1", author: "1", num_comments: 1, points: 2, objectID: "y" },
       { title: "2", author: "2", num_comments: 1, points: 2, objectID: "z" }
-    ],
-    sortKey: "TITLE",
-    isSortReverse: false
+    ]
   };
 
   it("render without problem", () => {
